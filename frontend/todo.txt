@@ -1,0 +1,7 @@
+features to add
+    pop-up for user to fill the profile information.
+
+
+Profile
+Event Creating
+Display in calendar
