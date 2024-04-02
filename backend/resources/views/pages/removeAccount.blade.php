@@ -1,5 +1,4 @@
-<h1>remove account?</h1>
-@extends('layouts.default')
+@extends('layouts.guest')
 
 @section('content')
     <div class="d-flex justify-content-center">
@@ -20,7 +19,7 @@
                 <input type="text" name="confirm" id="form2Example1" class="form-control" />
             </div>
             <!-- Submit button -->
-            <input type="submit" class="btn btn-primary btn-block mb-4" value="Login" />
+            <input type="submit" class="btn btn-primary btn-block mb-4" value="Delete account" />
         </form>
     </div>
 @endsection

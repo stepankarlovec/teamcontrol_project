@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('/removeaccount', [UserController::class, 'removeAccount']);
-Route::post('/removeaccount', [UserController::class, 'removeAccountHandle']);
+Route::post('/removeaccount', [UserController::class, 'removeAccountHandle'])->name('removeAccount');
 
 Route::get('/.well-known/assetlinks.json', function (){
     $data = \Illuminate\Support\Facades\Storage::get('.well-known/assetlinks.json');
@@ -32,7 +32,15 @@ Route::get('/.well-known/assetlinks.json', function (){
 });
 
 Route::get('/login', function () {
+    if(Auth::user()) {
+        if(Auth::user()->role==2) {
+            return redirect('dashboard');
+        }else{
+            return redirect('/removeaccount');
+        }
+    }else{
     return view('pages.login');
+        }
 });
 Route::post('/login', [AuthController::class, 'loginSuperAdmin'])->name('loginSuperAdmin');
 

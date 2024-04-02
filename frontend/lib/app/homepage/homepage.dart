@@ -37,7 +37,7 @@ class _HomepageState extends State<Homepage> {
     );
   }
   final List<BlockItem> listOfItems = [
-    //BlockItem(name: "Trénink", icon: 'football.svg', color: 0xff1e55b3, page: Homepage()),
+    BlockItem(name: "Trénink", icon: 'football.svg', color: 0xff1e55b3, page: Homepage()),
     BlockItem(name: "Absence", icon: 'danger.svg', color: 0xff1e55b3, page: ApologyWidget()),
     BlockItem(name: "Kalendář", icon: 'calendar.svg', color: 0xff1e55b3, page: CalendarWidget()),
   ];

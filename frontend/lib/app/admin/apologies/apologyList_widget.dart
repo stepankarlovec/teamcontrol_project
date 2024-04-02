@@ -1,10 +1,8 @@
 import 'package:app/app/admin/apologies/apologyDisplay_widget.dart';
 import 'package:app/app/admin/apologies/apologyList_service.dart';
-import 'package:app/app/event/eventList/eventList_service.dart';
 import 'package:app/config/utils.dart';
 import 'package:app/models/apology.dart';
 import 'package:flutter/material.dart';
-import 'package:app/models/event.dart';
 
 import '../../components/appBars.dart';
 import '../../components/drawer.dart';

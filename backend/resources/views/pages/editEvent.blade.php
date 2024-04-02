@@ -13,12 +13,16 @@
                 <input type="text" id="form12" name="name" value="{{$event->name}}" class="form-control" />
             </div>
             <div class="form-outline" >
-                <label class="form-label" for="form12">Type</label>
-                <input type="text" id="form12" name="type" value="{{$event->type}}" class="form-control" />
-            </div>
-            <div class="form-outline" >
                 <label class="form-label" for="form12">Date:</label>
                 <input type="datetime-local" id="form12" name="date" value="{{$event->date}}" class="form-control" />
+            </div>
+            <div class="form-outline" >
+                <label class="form-label" for="form12">Duration</label>
+                <input type="text" id="form12" name="duration" value="{{$event->duration}}" class="form-control" />
+            </div>
+            <div class="form-outline" >
+                <label class="form-label" for="form12">Repeated every week?</label>
+                <input type="checkbox" id="form12" name="repeated" value="{{ $event->repeated ? 1 : 0 }}" @checked($event->repeated) class="" />
             </div>
             <div class="form-outline" >
                 <label class="form-label" for="form12">Location</label>

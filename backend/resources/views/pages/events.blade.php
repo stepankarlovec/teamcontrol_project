@@ -7,7 +7,7 @@
             <th scope="col">Typ</th>
             <th scope="col">Date</th>
             <th scope="col">Location</th>
-            <th scope="col">Team</th>
+            <th scope="col">User</th>
             <th scope="col">Created at</th>
         </tr>
         </thead>
@@ -18,7 +18,7 @@
                 <td>{{$event->type ?? 'undefined'}}</td>
                 <td>{{$event->date}}</td>
                 <td>{{$event->location ?? 'undefined'}}</td>
-                <td><a href="{{route('team', $event->creator->team->id)}}">{{$event->creator->team->name}}</a></td>
+                <td><a href="{{route('user', $event->creator->id)}}">{{$event->creator->person->first_name . ' ' .$event->creator->person->last_name}}</a></td>
                 <td>{{$event->created_at}}</td>
                 <td><a href="{{route('event', $event->id)}}" class="btn btn-primary btn-block">Edit</a></td>
             </tr>

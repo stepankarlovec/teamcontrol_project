@@ -174,7 +174,7 @@ AppBar mainAppBar(BuildContext context, scaffoldKey) {
                       style: TextStyle(fontSize: 14, color: Colors.white)),
                   Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(truncateText(snapshotData.name, 16),
+                        Text(truncateText(snapshotData.name, 13),
                             style: TextStyle(fontSize: 40, color: Colors
                                 .white)),
                         GestureDetector(

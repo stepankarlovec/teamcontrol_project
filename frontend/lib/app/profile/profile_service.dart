@@ -6,6 +6,7 @@ import 'package:app/models/profile.dart';
 import 'package:app/config/globals.dart' as globals;
 import 'package:app/pages/LoginPage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
@@ -95,15 +96,19 @@ Future deleteAccount(context) async {
   );
 print(response.body);
   if (response.statusCode == 201 || response.statusCode == 200) {
+    const storage = FlutterSecureStorage();
     var req = DefaultRequest.fromJson(jsonDecode(response.body));
-    
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text(req.message),
       backgroundColor: Colors.green,
       duration: Duration(seconds: 3),
     ));
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => const LoginWidget()));
+    await storage.deleteAll().then((v) => {
+      Provider.of<User>(context, listen: false).update(UserAuthDataModel(ID: 0, email: "delete@delete.com", emailVerified: DateTime.now(), teamId: 0, personId: 0, createdAt: DateTime.now(), updatedAt: DateTime.now(), bearerToken: "", role: 0)),
+      SystemNavigator.pop(),
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const LoginPage()))
+    });
   } else {
     var req = ErrorRequest.fromJson(jsonDecode(response.body));
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(

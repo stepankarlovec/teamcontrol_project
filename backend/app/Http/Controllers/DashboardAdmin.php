@@ -75,14 +75,23 @@ class DashboardAdmin extends Controller
     public function updateEvent(Request $request, $id){
         $request->validate([
             'name' => 'required',
-            'country' => 'required',
+            'date' => 'required',
+            'repeated' => '',
+            'location' => 'required',
+            'creator_id' => 'required',
+            'duration' => 'required'
         ]);
 
-        $t = Team::find($id)->update([
+
+        $t = Event::find($id)->update([
             'name' => $request->name,
-            'country' => $request->country
+            'date' => $request->date,
+            'repeated' => isset($request->repeated) ? 1 : 0,
+            'location' => $request->location,
+            'creator_id' => $request->creator_id,
+            'duration' => $request->duration
         ]);
 
-        return redirect('/team/'.$id)->with('message', 'Successfully edited.');
+        return redirect('/event/'.$id)->with('message', 'Successfully edited.');
     }
 }
